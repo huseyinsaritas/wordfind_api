@@ -1,19 +1,17 @@
 import { NextFunction, Request, Response } from "express";
-import { getWordData } from "../../business/getWordData";
+import { isValidWord } from "../../business/isValidWord";
 import { ApiResponseErrorInternal, ApiResponseSuccess } from "../routes/ApiResponse";
 
-export const gameController = {
+export const validationController = {
   get: async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const len = Number(req.params.len);
+      const item = req.params.word;
       let param = req.params.lan.toUpperCase();
       const lan = param !== "EN" ? "TR" : "EN";
 
-      const wordData = await getWordData(len, lan);
+      const isValid = await isValidWord(item, lan);
 
-      if (wordData) return ApiResponseSuccess(res, wordData);
-
-      return ApiResponseSuccess(res, []);
+      return ApiResponseSuccess(res, isValid);
     } catch (error) {
       console.log("error", error);
       return ApiResponseErrorInternal(res);
@@ -22,15 +20,10 @@ export const gameController = {
 
   getTr: async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const len = Number(req.params.len);
-      const wordData = await getWordData(len, "TR");
+      const item = req.params.word;
+      const isValid = await isValidWord(item, "TR");
 
-      // await insertData();
-      // if (insert) return ApiResponseSuccess(res, insert);
-
-      if (wordData) return ApiResponseSuccess(res, wordData);
-
-      return ApiResponseSuccess(res, []);
+      return ApiResponseSuccess(res, isValid);
     } catch (error) {
       console.log("error", error);
       return ApiResponseErrorInternal(res);

@@ -26,7 +26,7 @@ if (!cached) {
 }
 
 export const dbConnect = async (): Promise<Mongoose | null> => {
-  console.log("db çağrıldı");
+  // console.log("db çağrıldı");
 
   if (cached.conn) {
     console.debug("cached connection returned at " + new Date());
@@ -36,11 +36,11 @@ export const dbConnect = async (): Promise<Mongoose | null> => {
   if (!cached.promise) {
     const opts = { bufferCommands: false, dbName: MONGODB_DB_NAME };
     cached.promise = connect(MONGODB_URI, opts).then((mongoose: Mongoose) => {
-      console.debug("First connection for cached promise at " + new Date());
+      // console.debug("First connection for cached promise at " + new Date());
       return mongoose;
     });
   } else {
-    console.debug("cached promise has been get at " + new Date());
+    // console.debug("cached promise has been get at " + new Date());
   }
 
   try {
