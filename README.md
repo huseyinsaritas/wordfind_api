@@ -36,8 +36,15 @@ cp .env.example .env
 
 4. Edit the .env file
 ```env
-PORT=8000
-# Add other required environment variables
+# Server Configuration
+PORT=8000  # API server port
+
+# MongoDB Configuration
+DATABASE_URI=mongodb://localhost:27017  # Local MongoDB
+# Or for MongoDB Atlas:
+# DATABASE_URI=mongodb+srv://<username>:<password>@<cluster>.mongodb.net/?retryWrites=true&w=majority
+
+DATABASE_DBNAME=wordfind  # Database name
 ```
 
 ## Development
