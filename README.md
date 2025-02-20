@@ -1,111 +1,109 @@
 # WordFind API
 
-WordFind API, kelime bulma oyunu için geliştirilmiş bir REST API servisidir. NestJS framework'ü kullanılarak TypeScript ile geliştirilmiştir.
+WordFind API is a REST API service developed for a word-finding game. It is built using the NestJS framework with TypeScript.
 
-## Özellikler
+## Features
 
 - RESTful API endpoints
-- Swagger API dokümantasyonu
-- TypeScript desteği
-- Modüler NestJS mimarisi
-- Validation pipe ile veri doğrulama
-- CORS desteği
+- Swagger API documentation
+- TypeScript support
+- Modular NestJS architecture
+- Data validation with Validation pipe
+- CORS support
 
-## Gereksinimler
+## Requirements
 
-- Node.js (v18 veya üzeri)
-- npm (v9 veya üzeri)
+- Node.js (v18 or higher)
+- npm (v9 or higher)
 
-## Kurulum
+## Installation
 
-1. Projeyi klonlayın
+1. Clone the project
 ```bash
 git clone [repository-url]
 cd wordfind-api
 ```
 
-2. Bağımlılıkları yükleyin
+2. Install dependencies
 ```bash
 npm install
 ```
 
-3. Ortam değişkenlerini ayarlayın
+3. Set up environment variables
 ```bash
 cp .env.example .env
 ```
 
-4. .env dosyasını düzenleyin
+4. Edit the .env file
 ```env
 PORT=8000
-# Diğer gerekli environment değişkenlerini ekleyin
+# Add other required environment variables
 ```
 
-## Geliştirme
+## Development
 
-Geliştirme modunda çalıştırmak için:
+To run in development mode:
 ```bash
 npm run start:dev
 ```
 
-Uygulama varsayılan olarak http://localhost:8000 adresinde çalışacaktır.
+The application will run at http://localhost:8000 by default.
 
 ## Production
 
-Production build almak için:
+To create a production build:
 ```bash
 npm run build
 ```
 
-Production modunda çalıştırmak için:
+To run in production mode:
 ```bash
 npm run start:prod
 ```
 
-## API Dokümantasyonu
+## API Documentation
 
-API dokümantasyonuna Swagger UI üzerinden erişebilirsiniz:
+Access the API documentation through Swagger UI:
 
-1. Uygulamayı çalıştırın
-2. Tarayıcınızda http://localhost:8000/api adresine gidin
+1. Start the application
+2. Visit http://localhost:8000/api in your browser
 
-Swagger UI özellikleri:
-- Tüm API endpoint'lerini kategorilere göre görüntüleme
-- Her endpoint için detaylı request/response şemaları
-- API endpoint'lerini doğrudan test etme imkanı
-- Endpoint filtreleme ve arama
-- Request süre gösterimi
+Swagger UI features:
+- View all API endpoints categorized
+- Detailed request/response schemas for each endpoint
+- Test API endpoints directly
+- Filter and search endpoints
+- Request duration display
 
-## Test
+## Testing
 
-Unit testleri çalıştırmak için:
+To run unit tests:
 ```bash
 npm run test
 ```
 
-E2E testleri çalıştırmak için:
+To run E2E tests:
 ```bash
 npm run test:e2e
 ```
 
-Test coverage raporu için:
+For test coverage report:
 ```bash
 npm run test:cov
 ```
 
-## API Endpoint Kategorileri
+## API Endpoint Categories
 
+- **/game** - Game management
+- **/game-config** - Game configuration
+- **/user** - User management
 
-- **/game** - Oyun yönetimi
-- **/game-config** - Oyun konfigürasyonu
-- **/user** - Kullanıcı yönetimi
+## License
 
+Distributed under the [MIT License](LICENSE).
 
-## Lisans
-
-[MIT lisansı](LICENSE) altında dağıtılmaktadır.
-
-## İletişim
+## Contact
 
 ayiyazilim Team - hsynsrtss@gmail.com
 
-Proje Linki: [https://github.com/huseyinsaritas/wordfind_api](https://github.com/huseyinsaritas/wordfind_api)
+Project Link: [https://github.com/huseyinsaritas/wordfind_api](https://github.com/huseyinsaritas/wordfind_api)

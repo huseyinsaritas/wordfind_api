@@ -82,8 +82,31 @@ describe('GameConfigController', () => {
   describe('updateGameConfig', () => {
     it('should update game config', async () => {
       const config: UpdateGameConfigDto = {
-        version: '1.0.0',
+        version: 'v1.0.0',
         adsCycle: 5,
+      };
+
+      const mockGameConfig: GameConfig = {
+        version: 'v1.0.0',
+        adsCycle: 5,
+      };
+
+      jest.spyOn(service, 'updateGameConfig').mockResolvedValue(mockGameConfig);
+
+      const result = await controller.updateGameConfig(config);
+      expect(result).toEqual(mockGameConfig);
+      expect(service.updateGameConfig).toHaveBeenCalledWith(config);
+    });
+
+    it('should update game config with only version', async () => {
+      const config: UpdateGameConfigDto = {
+        version: 'v1.0.1',
+        adsCycle: undefined as any,
+      };
+
+      const mockGameConfig: GameConfig = {
+        version: 'v1.0.1',
+        adsCycle: 3, // Existing value
       };
 
       jest.spyOn(service, 'updateGameConfig').mockResolvedValue(mockGameConfig);
