@@ -73,7 +73,7 @@ npm run start:prod
 Access the API documentation through Swagger UI:
 
 1. Start the application
-2. Visit http://localhost:8000/api in your browser
+2. Visit http://localhost:8000/docs in your browser
 
 Swagger UI features:
 - View all API endpoints categorized
