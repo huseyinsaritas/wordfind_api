@@ -7,10 +7,12 @@ import { ValidationPipe } from '@nestjs/common';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-  app.useGlobalPipes(new ValidationPipe({
-    whitelist: true,
-    transform: true,
-  }));
+  app.useGlobalPipes(
+    new ValidationPipe({
+      whitelist: true,
+      transform: true,
+    }),
+  );
 
   app.enableCors({
     origin: '*',
@@ -27,8 +29,8 @@ async function bootstrap() {
     .build();
   const document = SwaggerModule.createDocument(app, options);
   SwaggerModule.setup('/docs', app, document);
-
-  await app.listen(8000);
-  console.log('wordfind_api service started on *:8000');
+  const port = process.env.PORT || 8000;
+  await app.listen(port);
+  console.log(`wordfind_api service started on *:${port}`);
 }
 void bootstrap();
